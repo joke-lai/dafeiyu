@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DaFeiYu — Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; font: 16px/1.65 -apple-system, "Segoe UI", Roboto, sans-serif;
+         max-width: 46rem; margin-inline: auto; padding: 2.5rem 1.25rem 5rem; }
+  h1 { font-size: 1.75rem; margin: 0 0 .35rem; letter-spacing: -.02em; }
+  .sub { color: #666; margin: 0 0 2rem; }
+  h2 { font-size: 1.05rem; margin: 2rem 0 .5rem; }
+  table { border-collapse: collapse; width: 100%; margin: .75rem 0 1rem; font-size: .95rem; }
+  th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid rgba(127,127,127,.28);
+           vertical-align: top; }
+  th { font-weight: 600; }
+  code { background: rgba(127,127,127,.14); padding: .12em .38em; border-radius: 4px; font-size: .9em; }
+  a { color: #0b6e75; }
+  footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid rgba(127,127,127,.3);
+           font-size: .9rem; color: #666; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="sub">DaFeiYu · effective 26 October 2026</p>
+
+<h2>Summary</h2>
+<p>
+  DaFeiYu runs entirely on the operator's own computer. It has no server, no user
+  account system, and no analytics. Nothing is collected about you by a third
+  party, because there is no third party. The only outside service it contacts is
+  TikTok.
+</p>
+
+<h2>What is stored, and where</h2>
+<table>
+  <tr><th>Data</th><th>Where it lives</th><th>Why</th></tr>
+  <tr>
+    <td>TikTok access token and refresh token</td>
+    <td>Local disk, encrypted with Windows DPAPI under the operator's Windows user account</td>
+    <td>To call TikTok's API on the operator's behalf without asking them to log in again each time</td>
+  </tr>
+  <tr>
+    <td>App client key and client secret</td>
+    <td>Local disk, encrypted the same way</td>
+    <td>To complete the TikTok OAuth exchange</td>
+  </tr>
+  <tr>
+    <td>Video files</td>
+    <td>An approved local folder on the operator's machine</td>
+    <td>As the source for an upload. Files are read, sent to TikTok, and not copied elsewhere.</td>
+  </tr>
+  <tr>
+    <td>Non-secret settings (app client key, redirect URI, upload folder path)</td>
+    <td>Local <code>settings.json</code></td>
+    <td>Basic configuration</td>
+  </tr>
+</table>
+
+<h2>What is not collected</h2>
+<p>
+  No analytics, telemetry, crash reporting, advertising identifiers, device
+  fingerprints, contacts, location, or browsing history. No usage data is sent
+  anywhere. The tool does not read files outside the operator's approved upload
+  folder.
+</p>
+
+<h2>What is sent to TikTok</h2>
+<p>
+  Only what TikTok's own API requires:
+</p>
+<ul>
+  <li>the authorization code during login, exchanged for tokens at <code>open.tiktokapis.com</code>;</li>
+  <li>the selected video file, uploaded in chunks, to TikTok's upload host;</li>
+  <li>the video size and chunking parameters, and the <code>publish_id</code> when checking status.</li>
+</ul>
+<p>
+  No video is posted publicly by the tool. Uploads land in the operator's TikTok
+  inbox as drafts, and the operator decides in the TikTok app whether anything
+  becomes visible.
+</p>
+
+<h2>Data sharing</h2>
+<p>
+  None. Credentials and video files are never sold, rented, or disclosed to any
+  third party. There is no sub-processor and no cloud backend.
+</p>
+
+<h2>Retention and deletion</h2>
+<p>
+  Tokens remain on the local machine until they expire, are refreshed, or are
+  deleted. To remove all stored data:
+</p>
+<ul>
+  <li>revoke the app's access in TikTok under <em>Settings → Security &amp; permissions → Manage app permissions</em>;</li>
+  <li>delete the contents of <code>D:\TikTok-AI\secrets</code> on the local machine.</li>
+</ul>
+<p>
+  Because no data is held anywhere but the operator's own computer, deleting it
+  locally is a complete deletion.
+</p>
+
+<h2>Security</h2>
+<p>
+  Secrets are encrypted at rest with Windows DPAPI, bound to the operator's
+  Windows user account, so another Windows account on the same machine cannot
+  read them. The OAuth flow uses PKCE and a random <code>state</code> value, and
+  the redirect is caught on loopback only — no credential ever crosses a public
+  server.
+</p>
+
+<h2>Children</h2>
+<p>
+  The tool is not directed at children and is not distributed to the public.
+</p>
+
+<h2>Changes</h2>
+<p>
+  If this policy changes, the effective date above is updated.
+</p>
+
+<footer>
+  Contact: <a href="mailto:bigfatfish0061@gmail.com">bigfatfish0061@gmail.com</a><br>
+  <a href="./index.html">Home</a> · <a href="./terms.html">Terms of Service</a>
+</footer>
+
+</body>
+</html>

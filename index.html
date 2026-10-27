@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DaFeiYu — desktop video draft tool</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; font: 16px/1.65 -apple-system, "Segoe UI", Roboto, sans-serif;
+         max-width: 46rem; margin-inline: auto; padding: 2.5rem 1.25rem 5rem; }
+  h1 { font-size: 1.9rem; margin: 0 0 .35rem; letter-spacing: -.02em; }
+  .sub { color: #666; margin: 0 0 2.25rem; }
+  h2 { font-size: 1.05rem; margin: 2.25rem 0 .6rem; text-transform: uppercase;
+       letter-spacing: .06em; color: #555; }
+  code { background: rgba(127,127,127,.14); padding: .12em .38em; border-radius: 4px;
+         font-size: .9em; }
+  footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(127,127,127,.3);
+           font-size: .9rem; color: #666; }
+  a { color: #0b6e75; }
+  nav a { margin-right: 1.1rem; }
+</style>
+</head>
+<body>
+
+<h1>DaFeiYu</h1>
+<p class="sub">A personal desktop tool for staging your own videos as TikTok drafts.</p>
+
+<nav>
+  <a href="./terms.html">Terms of Service</a>
+  <a href="./privacy.html">Privacy Policy</a>
+</nav>
+
+<h2>What it does</h2>
+<p>
+  DaFeiYu runs locally on the operator's own Windows computer. You pick a video
+  file from your machine, and DaFeiYu sends it to your TikTok inbox as a
+  <strong>draft</strong>. You then open TikTok, review the video, write your
+  caption, choose your audience, and publish it yourself.
+</p>
+<p>
+  DaFeiYu does not post on your behalf. It has no publish capability: it cannot
+  make anything public, and it holds no permission that would let it try.
+</p>
+
+<h2>How it connects</h2>
+<p>
+  Authorization uses TikTok Login Kit with the standard authorization-code flow
+  and PKCE. The redirect is caught on a loopback address
+  (<code>http://127.0.0.1:3455/callback/</code>) on the same machine — no public
+  server is involved. The only TikTok permission requested is
+  <code>video.upload</code>, which stages an inbox draft.
+</p>
+
+<h2>Where your data lives</h2>
+<p>
+  Access and refresh tokens are written to local disk, encrypted with Windows
+  DPAPI under the operator's own Windows account. There is no DaFeiYu server, no
+  account system, and no analytics. The only network destination is
+  <code>open.tiktokapis.com</code>.
+</p>
+
+<h2>Who can use it</h2>
+<p>
+  This is a single-user tool. It is not distributed as a service, has no sign-up,
+  and is operated only by its owner against their own TikTok account.
+</p>
+
+<footer>
+  Operator: <a href="mailto:bigfatfish0061@gmail.com">bigfatfish0061@gmail.com</a><br>
+  Effective 26 October 2026
+</footer>
+
+</body>
+</html>
